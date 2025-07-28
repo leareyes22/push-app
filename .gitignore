@@ -40,3 +40,6 @@ app-example
 
 expo-push-notifications-cdf36-firebase-adminsdk-fbsvc-32c99498b9.json
 google-services.json
+
+android/
+ios/

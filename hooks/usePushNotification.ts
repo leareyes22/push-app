@@ -1,7 +1,7 @@
- 
 import Constants from "expo-constants";
 import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
+import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { Platform } from "react-native";
 
@@ -130,7 +130,11 @@ export const usePushNotification = () => {
 
     const responseListener =
       Notifications.addNotificationResponseReceivedListener((response) => {
-        console.log(response);
+        const { chatId } = response.notification.request.content.data;
+
+        if (chatId) {
+          router.push(`/chat/${chatId}`);
+        }
       });
 
     return () => {
